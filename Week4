@@ -44,6 +44,12 @@ function changeTrue(uint _productIndex) public {
 
 }
 
+modifier onlyOwner {
+    require(msg.sender == insOwner, "you are not the owner");
+
+    revert(" do not run theis function any more it will cast you fee");
+}
+
 function changePrice(uint _productIndex, uint _price) public {
     productIndex[_productIndex].price = _price;
 
